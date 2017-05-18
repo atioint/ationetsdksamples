@@ -3,5 +3,5 @@ In this repo you will find fully functional samples on how to consume the ATIOne
 * Auth Operations
 * FMS Operations
 * Interface Operations
-* Loyaltu Operations
+* Loyalty Operations
 * Retail Operations
