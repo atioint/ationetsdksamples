@@ -33,15 +33,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ationet.Model, Version=2.5.9800.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\AtionetSDK.0.8.10.1\lib\net45\Ationet.Model.dll</HintPath>
+      <HintPath>packages\AtionetSDK.0.8.11.0\lib\net45\Ationet.Model.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ationet.Native.Model, Version=2.5.9800.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\AtionetSDK.0.8.10.1\lib\net45\Ationet.Native.Model.dll</HintPath>
+      <HintPath>packages\AtionetSDK.0.8.11.0\lib\net45\Ationet.Native.Model.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ationet.Sdk, Version=0.8.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\AtionetSDK.0.8.10.1\lib\net45\Ationet.Sdk.dll</HintPath>
+    <Reference Include="Ationet.Sdk, Version=0.8.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\AtionetSDK.0.8.11.0\lib\net45\Ationet.Sdk.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">

@@ -8,7 +8,7 @@
 
     class Program
     {
-        static void Main(string[] args)
+        static async void Main(string[] args)
         {
             ////First of all, we create anAuthOperation object to interact with Ationet Authorization Engine
             var ationetSdk = new Ationet.Sdk.Auth.AuthOperations("https://native-beta.ationet.com", 20000);
@@ -24,16 +24,16 @@
                 EntryMethod = Ationet.Native.Model.Constants.EntryMethod.Unknown, ////Required field (use suggested value)
                 AccountType = Ationet.Native.Model.Constants.AccountType.ProprietaryGlobalFleetCard, ////Required field (use suggested value)
                 TerminalIdentification = "CH905ZJPV7LK", ////Required field (this value is configured in the portal)
-                SystemModel = "ZipLine", ////Required field (Third party app name or description)
+                SystemModel = "SystemModel", ////Required field (Third party app name or description)
                 SystemVersion = "1.0", ////Required field (Third party app version)
                 PrimaryTrack = "B3CF6C7AC98FD590", ////Required field (track2 information for primary identification)
                 TransactionSequenceNumber = 43, //// A sequence number that the terminal needs to store and handle
-                LocalTransactionDate = int.Parse(string.Format("{0}{1}{2}", DateTime.Now.Year, DateTime.Now.Month.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'), DateTime.Now.Day.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))), //// YYYYMMDD
-                LocalTransactionTime = int.Parse(string.Format("{0}{1}{2}", DateTime.Now.Hour.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'), DateTime.Now.Minute.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'), DateTime.Now.Second.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))) //// HHMMSS
+                LocalTransactionDate = int.Parse($"{DateTime.Now.Year}{DateTime.Now.Month.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}{DateTime.Now.Day.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}"), //// YYYYMMDD
+                LocalTransactionTime = int.Parse($"{DateTime.Now.Hour.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}{DateTime.Now.Minute.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}{DateTime.Now.Second.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}") //// HHMMSS
             };
 
             //// Sends the Pre Auth to the host
-            var preAuthResponse = ationetSdk.SendPreAuthorization(preAuthRequest);
+            var preAuthResponse = await ationetSdk.SendPreAuthorizationAsync(preAuthRequest);
 
             //// First of all we check if the response was proccessed OK (does NOT mean the transaction was approved)
             if (preAuthResponse.Status != SdkResponseStatus.Ok)
@@ -91,13 +91,13 @@
                     EntryMethod = Ationet.Native.Model.Constants.EntryMethod.Unknown, ////Required field (use suggested value)
                     AccountType = Ationet.Native.Model.Constants.AccountType.ProprietaryGlobalFleetCard, ////Required field (use suggested value)
                     TerminalIdentification = "CH905ZJPV7LK", ////Required field (this value is configured in the portal)
-                    SystemModel = "ZipLine", ////Required field (Third party app name or description)
+                    SystemModel = "SystemModel", ////Required field (Third party app name or description)
                     SystemVersion = "1.0", ////Required field (Third party app version)
                     PrimaryTrack = "B3CF6C7AC98FD590", ////Required field (track2 information for primary identification)
                     TransactionSequenceNumber = preAuthRequest.TransactionSequenceNumber, ////Required field (track2 information for primary identification)
 
-                    LocalTransactionDate = int.Parse(string.Format("{0}{1}{2}", DateTime.Now.Year, DateTime.Now.Month.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'), DateTime.Now.Day.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))), //// YYYYMMDD
-                    LocalTransactionTime = int.Parse(string.Format("{0}{1}{2}", DateTime.Now.Hour.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'), DateTime.Now.Minute.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'), DateTime.Now.Second.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))), //// HHMMSS
+                    LocalTransactionDate = int.Parse($"{DateTime.Now.Year}{DateTime.Now.Month.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}{DateTime.Now.Day.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}"), //// YYYYMMDD
+                    LocalTransactionTime = int.Parse($"{DateTime.Now.Hour.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}{DateTime.Now.Minute.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}{DateTime.Now.Second.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}"), //// HHMMSS
                                                                                                                                                                                                                                                                                                                     ////ProductAmount = 99, 
                     ProductUnitPrice = decimal.Parse("1.23"),
                     ProductQuantity = decimal.Parse("9.82"),
@@ -105,7 +105,7 @@
                 };
 
                 //// Sends the Completion to the host
-                var completionResponse = ationetSdk.SendConfirmation(completionRequest);
+                var completionResponse = await ationetSdk.SendConfirmationAsync(completionRequest);
 
                 if (completionResponse.Status != SdkResponseStatus.Ok)
                 {
@@ -144,7 +144,7 @@
                     EntryMethod = Ationet.Native.Model.Constants.EntryMethod.Unknown, ////Required field (use suggested value)
                     AccountType = Ationet.Native.Model.Constants.AccountType.ProprietaryGlobalFleetCard, ////Required field (use suggested value)
                     TerminalIdentification = "CH905ZJPV7LK", ////Required field (this value is configured in the portal)
-                    SystemModel = "ZipLine", ////Required field (Third party app name or description)
+                    SystemModel = "SystemModel", ////Required field (Third party app name or description)
                     SystemVersion = "1.0", ////Required field (Third party app version)
                     TransactionSequenceNumber = preAuthRequest.TransactionSequenceNumber, ////Required field (track2 information for primary identification)
 
