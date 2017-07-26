@@ -5,3 +5,5 @@ In this repo you will find fully functional samples on how to consume the ATIOne
 * Interface Operations
 * Loyalty Operations
 * Retail Operations
+
+For a complete guide on how to consume de SDK please check [this document](AN-SDK-Reference.md)
