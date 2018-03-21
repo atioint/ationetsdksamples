@@ -26,6 +26,7 @@
             ////Since the SendPreAuthorization() method receives a AuthTransactionRequest object, we create one.
             var preAuthRequest = new AuthTransactionRequest
             {
+                DeviceTypeIdentifier = "4", //// Required Field (indicates the terminal type (IndoorPaymentTerminal = "1" / OutdoorPaymentTerminal = "2" / CardReaderInDispenser = "3" / OtherSelfService = "4")) 
                 ApplicationType = Ationet.Native.Model.Constants.ApplicationType.FleetControlSystem,
                 ////Required field (use suggested value)
                 ProcessingMode = Ationet.Native.Model.Constants.ProcessingMode.HostProcessingRequired,
