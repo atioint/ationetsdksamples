@@ -41,7 +41,7 @@
                 SystemModel = "SystemModel", ////Required field (Third party app name or description)
                 SystemVersion = "1.0", ////Required field (Third party app version)
                 PrimaryTrack = "B3CF6C7AC98FD590", ////Required field (track2 information for primary identification)
-                TransactionSequenceNumber = 51, //// A sequence number that the terminal needs to store and handle
+                TransactionSequenceNumber = 54, //// A sequence number that the terminal needs to store and handle
                 LocalTransactionDate =
                     int.Parse(
                         $"{DateTime.Now.Year}{DateTime.Now.Month.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}{DateTime.Now.Day.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0')}"),
