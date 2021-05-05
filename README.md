@@ -6,4 +6,4 @@ In this repo you will find fully functional samples on how to consume the ATIOne
 * Loyalty Operations
 * Retail Operations
 
-For a complete guide on how to consume de SDK please check [this document](AN-SDK-Reference.md)
+For a complete guide on how to consume de SDK please check [this document](https://github.com/Ationet/ationetdocs/blob/master/AN-SDK-Reference.md)
